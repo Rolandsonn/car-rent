@@ -1,0 +1,476 @@
+/* =====================================================
+   ПЕРЕМЕННЫЕ (цвета и общие значения)
+   Меняйте цвета здесь — они поменяются по всему сайту
+   ===================================================== */
+:root {
+  --color-primary: #405ff2;        /* основной синий */
+  --color-primary-dark: #2f49c9;   /* синий при наведении */
+  --color-dark: #050b20;           /* тёмный текст */
+  --color-gray: #77818c;           /* серый текст */
+  --color-border: #e6e9f0;         /* линии и рамки */
+  --color-bg-light: #f4f7ff;       /* светлый фон секций */
+  --color-footer: #041a2f;         /* фон футера */
+
+  --radius: 14px;
+  --shadow: 0 10px 40px rgba(5, 11, 32, 0.08);
+  --transition: 0.25s ease;
+}
+
+
+/* =====================================================
+   БАЗА
+   ===================================================== */
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--color-dark);
+  background: #ffffff;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+
+/* =====================================================
+   HEADER — шапка сайта
+   ===================================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header__box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.header__box > a img {
+  height: 34px;
+  width: auto;
+}
+
+/* Меню */
+.header__menu {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.header__menu a {
+  position: relative;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.header__menu a::after {          /* линия, которая выезжает под ссылкой */
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width var(--transition);
+}
+
+.header__menu a:hover {
+  color: var(--color-primary);
+}
+
+.header__menu a:hover::after {
+  width: 100%;
+}
+
+/* Кнопки Sign in / Sign up */
+.header__buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header__buttons button {
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 10px;
+  transition: var(--transition);
+}
+
+.header__buttons button:first-child {      /* Sign in */
+  color: var(--color-dark);
+}
+
+.header__buttons button:first-child:hover {
+  color: var(--color-primary);
+}
+
+.header__buttons button:last-child {       /* Sign up */
+  color: #ffffff;
+  background: var(--color-primary);
+  box-shadow: 0 6px 18px rgba(64, 95, 242, 0.35);
+}
+
+.header__buttons button:last-child:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   HERO — главный экран
+   ===================================================== */
+.hero {
+  padding: 70px 0 80px;
+  background: linear-gradient(180deg, var(--color-bg-light) 0%, #ffffff 100%);
+  overflow: hidden;
+}
+
+.hero__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* Левая часть: заголовок, текст, кнопка магазина */
+.hero__left {
+  max-width: 520px;
+}
+
+.hero__title {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+.hero__title span {
+  color: var(--color-primary);
+}
+
+.hero__left .hero__text {
+  margin: 22px 0 32px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-gray);
+}
+
+.hero__left > img {
+  width: 170px;
+  height: auto;
+  transition: transform var(--transition);
+}
+
+.hero__left > img:hover {
+  transform: translateY(-3px);
+}
+
+/* Правая часть: машина */
+.hero__right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero__right img {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  filter: drop-shadow(0 30px 40px rgba(5, 11, 32, 0.18));
+}
+
+
+/* ---------- Hero: панель поиска ---------- */
+.hero__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin-top: 50px;
+  padding: 24px 32px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.hero__list {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.hero__item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hero__item:not(:last-child) {            /* разделитель между полями */
+  padding-right: 32px;
+  border-right: 1px solid var(--color-border);
+}
+
+.hero__item img {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.hero__item .hero__text {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.hero__item .hero__text span {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-gray);
+}
+
+.hero__btn {
+  padding: 16px 52px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--color-primary);
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(64, 95, 242, 0.35);
+  transition: var(--transition);
+}
+
+.hero__btn:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   WORK — блок "How it work"
+   ===================================================== */
+.work {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 90px 24px;
+  text-align: center;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--color-primary);
+}
+
+.main-title {
+  margin-top: 12px;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/* Три шага */
+.work__list {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 56px;
+}
+
+.work__item {
+  flex: 1;
+  max-width: 330px;
+  padding: 36px 28px;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  transition: var(--transition);
+}
+
+.work__item:hover {
+  transform: translateY(-8px);
+  border-color: transparent;
+  box-shadow: var(--shadow);
+}
+
+.work__item img {
+  width: 90px;
+  height: auto;
+  margin: 0 auto 24px;
+}
+
+.work__subtitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.work__text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-gray);
+}
+
+/* Логотипы партнёров */
+.work__box {
+  margin-top: 70px;
+  padding-top: 40px;
+  border-top: 1px solid var(--color-border);
+}
+
+.work__box img {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  margin: 0 auto;
+  opacity: 0.85;
+}
+
+
+/* =====================================================
+   FOOTER — подвал
+   ===================================================== */
+.footer {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-footer);
+  color: #ffffff;
+  padding: 50px 0 28px;
+}
+
+/* Декоративные вертикальные полосы */
+.footer__stripes {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(80, 20, 60, 0.35) 0,
+    rgba(80, 20, 60, 0.35) 65px,
+    transparent 65px,
+    transparent 130px
+  );
+  pointer-events: none;
+}
+
+.footer__container {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Верхняя часть: 5 колонок */
+.footer__top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+/* Колонка 1: логотип + контакты */
+.footer__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.footer__logo-text {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.footer__contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.footer__contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer__contact-icon {
+  flex-shrink: 0;
+}
+
+.footer__contact-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #e6e9ee;
+  transition: color var(--transition);
+}
+
+a.footer__contact-text:hover {
+  color: #ffffff;
+}
+
+/* Колонки со ссылками */
+.footer__title {
+  margin-bottom: 18px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer__link {
+  font-size: 13px;
+  color: #c9ced6;
+  transition: color var(--transition);
+}
+
+.footer__link:hover {
+  color: #ffffff;
+}
+
+/* Соцсети */
+.footer__social {
+  display: flex;
+  gap: 12px;
+}
+
+.footer__social-link {
+  display: inline-flex;
+  opacity: 0.85;
+  transition: var(--transition);
+}
+
+.footer__social-link:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+/* Разделитель и копирайт */
+.footer__divider {
+  height: 1px;
+  margin: 44px 0 20px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.footer__copyright {
+  font-size: 12px;
+  color: #e6e9ee;
+}

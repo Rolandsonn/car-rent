@@ -1,0 +1,251 @@
+/* =====================================================
+   MEDIA QUERIES — адаптив под основные устройства
+   Подключать ПОСЛЕ styles.css:
+   <link rel="stylesheet" href="./css/styles.css" />
+   <link rel="stylesheet" href="./css/media.css" />
+
+   Брейкпоинты (от большего к меньшему):
+   1200px — небольшой ноутбук
+    992px — планшет (горизонтально)
+    768px — планшет (вертикально)
+    576px — телефон
+    400px — маленький телефон
+   ===================================================== */
+
+
+/* =====================================================
+   1200px — небольшой ноутбук
+   ===================================================== */
+@media (max-width: 1200px) {
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .hero__right img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+
+/* =====================================================
+   992px — планшет (горизонтально)
+   ===================================================== */
+@media (max-width: 992px) {
+
+  /* ---------- Header ---------- */
+  .header__box {
+    gap: 16px;
+  }
+
+  .header__menu {
+    gap: 16px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero__wrapper {
+    flex-direction: column;       /* текст сверху, машина снизу */
+    align-items: center;
+    text-align: center;
+    gap: 32px;
+  }
+
+  .hero__title {
+    font-size: 40px;
+  }
+
+  .hero__right img {
+    max-width: 80%;
+    height: auto;
+  }
+
+  .hero__bottom {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* ---------- Work (How it work) ---------- */
+  .work__list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+  }
+
+  .work__box img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* ---------- Footer ---------- */
+  .footer__top {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+
+/* =====================================================
+   768px — планшет (вертикально)
+   ===================================================== */
+@media (max-width: 768px) {
+
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* ---------- Header ---------- */
+  .header__box {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 12px;
+  }
+
+  .header__menu {
+    order: 3;                      /* меню уходит на вторую строку */
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 24px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero__title {
+    font-size: 32px;
+  }
+
+  .hero__right img {
+    max-width: 100%;
+  }
+
+  .hero__bottom {
+    flex-direction: column;        /* поля поиска друг под другом */
+    align-items: stretch;
+  }
+
+  .hero__list {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .hero__btn {
+    width: 100%;
+  }
+
+  /* ---------- Work ---------- */
+  .work__list {
+    flex-direction: column;        /* шаги друг под другом */
+    align-items: center;
+    gap: 28px;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+
+  .main-title {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  /* ---------- Footer ---------- */
+  .footer__container {
+    padding: 0 24px;
+  }
+
+  .footer__top {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 16px;
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;           /* логотип и контакты на всю ширину */
+  }
+}
+
+
+/* =====================================================
+   576px — телефон
+   ===================================================== */
+@media (max-width: 576px) {
+
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* ---------- Header ---------- */
+  .header__box {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .header__menu {
+    flex-direction: column;        /* пункты меню столбиком */
+    align-items: center;
+    gap: 10px;
+  }
+
+  .header__buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero__title {
+    font-size: 28px;
+  }
+
+  .hero__text {
+    font-size: 14px;
+  }
+
+  /* ---------- Work ---------- */
+  .main-title {
+    font-size: 24px;
+  }
+
+  .work__item img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* ---------- Footer ---------- */
+  .footer {
+    padding: 28px 0 20px;
+  }
+
+  .footer__container {
+    padding: 0 16px;
+  }
+
+  .footer__divider {
+    margin: 28px 0 14px;
+  }
+}
+
+
+/* =====================================================
+   400px — маленький телефон
+   ===================================================== */
+@media (max-width: 400px) {
+
+  .hero__title {
+    font-size: 24px;
+  }
+
+  .main-title {
+    font-size: 20px;
+  }
+
+  /* ---------- Footer ---------- */
+  .footer__top {
+    grid-template-columns: 1fr;    /* все колонки в один столбец */
+  }
+}
